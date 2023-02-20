@@ -24,9 +24,11 @@ export type ColorPalette = {
   colors: Color[]
 }
 
+const [_namePrefix, ...palleteNames] = String(_name).split(":")
+
 const colorPalette: ColorPalette = {
   prefix: String(_prefix),
-  name: String(_name),
+  name: palleteNames.join(":"),
   columns: Number(_columns.split(":")[1]),
   colors: _colors.map((color) => {
     const [_red, _green, _blue, ..._name] = color.split(" ")
